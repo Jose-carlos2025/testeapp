@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Científica - Jmax</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Biblioteca para gráficos -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- Biblioteca jQuery -->
+</head>
+<body>
+    <div class="calculator">
+        <input type="text" id="display" disabled />
+        <div class="buttons">
+            <button onclick="clearDisplay()">C</button>
+            <button onclick="appendToDisplay('7')">7</button>
+            <button onclick="appendToDisplay('8')">8</button>
+            <button onclick="appendToDisplay('9')">9</button>
+            <button onclick="appendToDisplay('/')">/</button>
+            <button onclick="appendToDisplay('4')">4</button>
+            <button onclick="appendToDisplay('5')">5</button>
+            <button onclick="appendToDisplay('6')">6</button>
+            <button onclick="appendToDisplay('*')">*</button>
+            <button onclick="appendToDisplay('1')">1</button>
+            <button onclick="appendToDisplay('2')">2</button>
+            <button onclick="appendToDisplay('3')">3</button>
+            <button onclick="appendToDisplay('-')">-</button>
+            <button onclick="appendToDisplay('0')">0</button>
+            <button onclick="appendToDisplay('.')">.</button>
+            <button onclick="calculateResult()">=</button>
+            <button onclick="appendToDisplay('+')">+</button>
+            <button onclick="appendToDisplay('Math.sqrt(')">√</button>
+            <button onclick="appendToDisplay('Math.pow(')">x²</button>
+            <button onclick="appendToDisplay('Math.sin(')">sin</button>
+            <button onclick="appendToDisplay('Math.cos(')">cos</button>
+            <button onclick="appendToDisplay('Math.tan(')">tan</button>
+            <button onclick="openChat()">💬 Jmax Chat</button>
+            <button onclick="toggleGraph()">Gráfico</button>
+            <button onclick="toggleDrawing()">Desenho</button>
+            <button onclick="searchGoogle()">🔍 Google</button> <!-- Botão para pesquisa no Google -->
+        </div>
+    </div>
+
+    <div class="chat-section" style="display: none;">
+        <h2>Chat com Jmax</h2>
+        <div id="chatMessages" style="border: 1px solid #ccc; height: 200px; overflow-y: scroll; padding: 10px;"></div>
+        <input type="text" id="chatInput" placeholder="Digite sua mensagem..." />
+        <button onclick="sendMessage()">Enviar</button>
+        <button onclick="showFAQ()">Perguntas Frequentes</button>
+        <button onclick="speakResponse()">Falar Resposta</button>
+    </div>
+
+    <div class="graph-section" style="display: none;">
+        <h2>Gráfico</h2>
+        <input type="text" id="chartData" placeholder="Dados do gráfico (ex: 10,20,30)" />
+        <select id="chartType">
+            <option value="line">Linha</option>
+            <option value="bar">Barra</option>
+            <option value="radar">Radar</option>
+            <option value="pie">Pizza</option>
+            <option value="doughnut">Donut</option>
+        </select>
+        <button onclick="drawChart()">Criar Gráfico</button>
+        <canvas id="myChart" width="400" height="200"></canvas>
+    </div>
+
+    <div class="drawing-section" style="display: none;">
+        <h2>Desenho</h2>
+        <canvas id="drawingCanvas" width="400" height="200" style="border:1px solid #000000;"></canvas>
+        <div class="drawing-tools">
+            <button onclick="clearDrawing()">Limpar Desenho</button>
+            <input type="color" id="colorPicker" value="#000000" onchange="changeColor(this.value)" />
+            <button onclick="saveDrawing()">Salvar Desenho</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

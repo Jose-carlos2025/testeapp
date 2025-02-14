@@ -1,0 +1,109 @@
+/* Resetando estilo padrão */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url('https://i.gifer.com/RXi9.gif');
+    background-size: cover; /* Ajusta a imagem para cobrir todo o fundo */
+    background-repeat: no-repeat; /* Evita que a imagem se repita */
+    background-position: center; /* Centraliza a imagem */
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+/* Estilo da calculadora */
+.calculator {
+    background-color: rgba(255, 255, 255, 0.8); /* Fundo branco com transparência */
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 90%; /* Ajusta a largura para 90% da tela */
+    max-width: 400px;
+    margin-bottom: 20px;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.5em;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+/* Estilo dos botões */
+.buttons {
+    display: flex;
+    flex-wrap: wrap; /* Permite que os botões se movam para a próxima linha */
+    justify-content: center; /* Centraliza os botões */
+}
+
+.buttons button {
+    padding: 10px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    flex: 1 1 30%; /* Permite que os botões se ajustem ao espaço disponível */
+}
+
+.buttons button:hover {
+    background-color: #45a049;
+}
+
+/* Estilo do chat */
+#chatMessages {
+    height: 200px;
+    overflow-y: scroll;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+input[type="text"]#chatInput {
+    width: calc(100% - 80px);
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    margin-right: 10px;
+}
+
+/* Estilo do gráfico */
+.graph-section {
+    margin-top: 20px;
+}
+
+/* Estilo do desenho */
+.drawing-section {
+    margin-top: 20px;
+}
+
+/* Estilo do footer */
+footer {
+    text-align: center;
+    color: #999;
+    font-size: 0.8em;
+    margin-top: 20px;
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+    .calculator {
+        width: 95%; /* Ajusta a largura para 95% em telas menores */
+    }
+
+    .buttons button {
+        flex: 1 1 45%; /* Ajusta os botões para ocupar mais espaço em telas menores */
+    }
+}
