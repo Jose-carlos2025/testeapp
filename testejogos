@@ -1,0 +1,55 @@
+function minimax(board, depth, isMaximizing) {
+    if (depth === 0 || isGameOver(board)) {
+        return evaluateBoard(board);
+    }
+    
+    let bestMove = null;
+    let bestValue = isMaximizing ? -Infinity : Infinity;
+    let possibleMoves = getAllPossibleMoves(board, isMaximizing ? "black" : "red");
+    
+    for (let move of possibleMoves) {
+        let newBoard = applyMove(board, move);
+        let boardValue = minimax(newBoard, depth - 1, !isMaximizing);
+        
+        if (isMaximizing) {
+            if (boardValue > bestValue) {
+                bestValue = boardValue;
+                bestMove = move;
+            }
+        } else {
+            if (boardValue < bestValue) {
+                bestValue = boardValue;
+                bestMove = move;
+            }
+        }
+    }
+    
+    return depth === 3 ? bestMove : bestValue;
+}
+
+function evaluateBoard(board) {
+    let score = 0;
+    board.forEach(row => row.forEach(cell => {
+        if (cell === "black") score += 1;
+        if (cell === "black-king") score += 3;
+        if (cell === "red") score -= 1;
+        if (cell === "red-king") score -= 3;
+    }));
+    return score;
+}
+
+function isGameOver(board) {
+    return !board.flat().includes("red") || !board.flat().includes("black");
+}
+
+function getAllPossibleMoves(board, color) {
+    // Aqui deve ser implementada a geração de movimentos válidos para a cor especificada
+    return [];
+}
+
+function applyMove(board, move) {
+    // Aplica um movimento ao tabuleiro e retorna um novo estado
+    return board;
+}
+
+module.exports = { minimax };

@@ -1,112 +1,68 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Método Ágil</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.8;
-            margin: 40px;
-            background-color: #f9f9f9;
-        }
-        h1, h2, h3 {
-            color: #2c3e50;
-        }
-        .cover {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-        .cover img {
-            width: 300px;
-            border-radius: 8px;
-        }
-        .content {
-            max-width: 900px;
-            margin: auto;
-        }
-        .small-qr {
-            text-align: center;
-            margin: 20px 0;
-        }
-        .small-qr img {
-            width: 120px;
-        }
-        p {
-            font-size: 1.1em;
-        }
-    </style>
+    <title>Calculadora Científica - Jmax</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <div class="content">
-        <div class="cover">
-            <img src="sandbox:/mnt/data/qrcode_metodologia.png" alt="QR Code">
+    <div class="calculator">
+        <input type="text" id="display" disabled />
+        <div class="buttons">
+            <button onclick="clearDisplay()">C</button>
+            <button onclick="appendToDisplay('7')">7</button>
+            <button onclick="appendToDisplay('8')">8</button>
+            <button onclick="appendToDisplay('9')">9</button>
+            <button onclick="appendToDisplay('/')">/</button>
+            <button onclick="appendToDisplay('4')">4</button>
+            <button onclick="appendToDisplay('5')">5</button>
+            <button onclick="appendToDisplay('6')">6</button>
+            <button onclick="appendToDisplay('*')">*</button>
+            <button onclick="appendToDisplay('1')">1</button>
+            <button onclick="appendToDisplay('2')">2</button>
+            <button onclick="appendToDisplay('3')">3</button>
+            <button onclick="appendToDisplay('-')">-</button>
+            <button onclick="appendToDisplay('0')">0</button>
+            <button onclick="appendToDisplay('.')">.</button>
+            <button onclick="calculateResult()">=</button>
+            <button onclick="appendToDisplay('+')">+</button>
         </div>
-        
-        <h1>Método Ágil</h1>
-        <p><strong>Disciplina:</strong> Componente de Formação Tecnológica</p>
-        <p><strong>UFCD nº:</strong> 0806 – Princípios Metodológicos de Programação</p>
-        <p><strong>Professor:</strong> Jhonny Mosquera</p>
-        <p><strong>Ano Letivo:</strong> 2024/2025</p>
-        <p><strong>Data de Entrega:</strong> 31/03/2025</p>
-        
-        <h2>Introdução</h2>
-        <p>A programação é a base do avanço tecnológico e, por isso, constantemente evolui para atender às necessidades de um mundo cada vez mais dinâmico. O campo do desenvolvimento de software, especificamente, tem experimentado uma transformação nas últimas décadas, com o surgimento de metodologias mais flexíveis e colaborativas, conhecidas como metodologias ágeis. Essas metodologias surgiram como uma resposta às limitações das abordagens tradicionais, que eram muitas vezes lentas e inflexíveis. O Método Ágil destaca-se por sua capacidade de adaptar-se rapidamente às mudanças, resultando em um desenvolvimento mais rápido e com maior foco nas necessidades dos clientes. Neste trabalho, vamos explorar as características, vantagens e desafios do Método Ágil, assim como um caso de uso real de sua aplicação.</p>
-
-        <h2>Parte 1: Método Ágil</h2>
-        <h3>1.1 Evolução do Método Ágil</h3>
-        <p>O conceito de metodologias ágeis começou a ser debatido na década de 1990, com o crescente descontentamento dos desenvolvedores com os métodos tradicionais de desenvolvimento de software. Até então, a maioria das equipes seguia o modelo de desenvolvimento em cascata, que era rígido, lento e propenso a falhas, especialmente quando surgiam mudanças durante o processo. No entanto, à medida que o software se tornou mais complexo e as demandas do mercado mais urgentes, tornou-se evidente que era necessário algo mais flexível e eficiente.</p>
-        <p>Em 2001, um grupo de 17 desenvolvedores de software, incluindo figuras chave como Kent Beck e Mike Beedle, se reuniu para discutir novas formas de trabalhar. O resultado dessa reunião foi o Manifesto Ágil, que estabeleceu os princípios fundamentais das metodologias ágeis, incluindo a valorização da comunicação, da colaboração e da capacidade de adaptação.</p>
-
-        <h3>1.2 Características Fundamentais</h3>
-        <p>O Método Ágil baseia-se em alguns princípios essenciais que o tornam eficaz para equipes de desenvolvimento que precisam ser rápidas, colaborativas e adaptáveis. As principais características do Ágil incluem:</p>
-        <ul>
-            <li><strong>Iteratividade e Incrementação:</strong> Ao invés de esperar meses ou anos para uma entrega final, o trabalho é dividido em pequenos ciclos chamados sprints. A cada ciclo, uma versão funcional do produto é entregue, permitindo que o cliente veja o progresso continuamente e forneça feedback.</li>
-            <li><strong>Colaboração e Feedback Contínuo:</strong> O trabalho não é feito em silêncio. O cliente e a equipe estão em constante comunicação, com reuniões regulares e feedback contínuo, o que garante que as necessidades do cliente sejam atendidas ao longo de todo o processo.</li>
-            <li><strong>Adaptação a Mudanças:</strong> O Ágil é projetado para ser flexível. Se surgirem novas ideias ou se as necessidades do cliente mudarem, a equipe pode se adaptar rapidamente e mudar o curso do projeto para atender a essas necessidades.</li>
-            <li><strong>Foco na Entrega de Valor:</strong> O objetivo final não é apenas produzir código, mas sim entregar valor real ao cliente. O Método Ágil enfatiza a entrega de funcionalidades úteis e significativas que tragam valor de imediato.</li>
-        </ul>
-        
-        <h3>1.3 Vantagens e Desvantagens</h3>
-        <h4>Vantagens:</h4>
-        <ul>
-            <li><strong>Maior Flexibilidade:</strong> A capacidade de se adaptar rapidamente às mudanças e ajustar o escopo conforme necessário é uma das maiores vantagens do Ágil.</li>
-            <li><strong>Entrega Contínua de Valor:</strong> O cliente recebe incrementos funcionais constantemente, o que aumenta a satisfação e garante que o produto esteja sempre alinhado com suas expectativas.</li>
-            <li><strong>Melhor Colaboração:</strong> A interação constante entre as equipes de desenvolvimento, o cliente e outros stakeholders resulta em soluções mais eficazes e uma comunicação melhor.</li>
-            <li><strong>Detecção Precoce de Problemas:</strong> Ao realizar testes contínuos e receber feedback rápido, os problemas são identificados e resolvidos de maneira mais eficaz, o que reduz o risco de falhas graves no produto final.</li>
-        </ul>
-        <h4>Desvantagens:</h4>
-        <ul>
-            <li><strong>Desafios de Implementação:</strong> A implementação de metodologias ágeis pode ser difícil para equipes que não estão acostumadas a trabalhar de forma colaborativa ou em ciclos curtos.</li>
-            <li><strong>Exige Alto Comprometimento:</strong> A equipe e o cliente precisam estar totalmente comprometidos com o processo para que a metodologia seja eficaz. Caso contrário, o desenvolvimento pode se tornar caótico e ineficiente.</li>
-            <li><strong>Riscos de Escopo Indefinido:</strong> Como o escopo pode ser ajustado a qualquer momento, pode ser difícil controlar o avanço do projeto e garantir que ele seja concluído dentro do prazo e orçamento previstos.</li>
-        </ul>
-        
-        <div class="small-qr">
-            <img src="https://i.postimg.cc/CLBXzS1M/qrcode-metodologia.png" alt="QR Code Pequeno">
-        </div>
-        
-        <h2>Parte 2: Caso de Uso Aplicando o Método Ágil</h2>
-        <h3>2.1 Contexto e Justificativa</h3>
-        <p>O desenvolvimento de aplicativos móveis exige uma abordagem ágil devido à natureza dinâmica e em constante mudança das necessidades dos usuários e das tecnologias. Neste caso de uso, vamos examinar o desenvolvimento de um aplicativo de gestão de tarefas, que permite aos usuários organizar suas atividades diárias e colaborar com outras pessoas.</p>
-        <p>O projeto foi iniciado com a premissa de que os usuários precisariam de novas funcionalidades ao longo do tempo, como integração com calendários, notificações em tempo real e otimização para múltiplas plataformas. Dada a complexidade do projeto e a necessidade de adaptação constante, foi escolhida a metodologia Scrum para garantir uma entrega rápida e contínua de valor.</p>
-
-        <h3>2.2 Implementação do Método Ágil no Projeto</h3>
-        <p>O time foi estruturado em torno de um ciclo de sprints de duas semanas, com entregas de funcionalidades incrementais. Durante cada sprint, as funcionalidades mais importantes foram priorizadas, e ao final de cada ciclo, o cliente recebia uma versão funcional do aplicativo para testes e feedback.</p>
-        <p>Essa abordagem permitiu que mudanças e melhorias fossem implementadas rapidamente. Além disso, o feedback contínuo garantiu que a equipe mantivesse o foco nas necessidades reais dos usuários e nas funcionalidades mais importantes para o sucesso do aplicativo.</p>
-
-        <h2>Conclusão</h2>
-        <p>O Método Ágil se consolidou como uma abordagem fundamental no desenvolvimento de software, pois permite que equipes respondam rapidamente às mudanças e entreguem valor de maneira contínua. Embora envolva desafios de implementação e exija um alto nível de comprometimento das equipes, seus benefícios são claros, especialmente em ambientes dinâmicos onde a adaptabilidade é essencial. O caso de uso mostrado demonstra a eficácia do Ágil na entrega de soluções funcionais, alinhadas às necessidades do cliente e adaptáveis a mudanças ao longo do tempo.</p>
-        
-        <h2>Referências</h2>
-        <ul>
-            <li>Beck, K. "Extreme Programming Explained." Addison-Wesley, 2004.</li>
-            <li>Schwaber, K., & Sutherland, J. "The Scrum Guide." Scrum.org, 2020.</li>
-            <li>Highsmith, J. "Agile Project Management: Creating Innovative Products." Addison-Wesley, 2004.</li>
-            <li>Sutherland, J. "Scrum: The Art of Doing Twice the Work in Half the Time." Crown Business, 2014.</li>
-            <li>Artigos acadêmicos e websites especializados sobre metodologias ágeis.</li>
-        </ul>
     </div>
+
+    <div class="chat-section">
+        <h2>Chat com Jmax</h2>
+        <div id="chatMessages" style="border: 1px solid #ccc; height: 200px; overflow-y: scroll; padding: 10px;"></div>
+        <input type="text" id="chatInput" placeholder="Digite sua mensagem..." />
+        <button onclick="sendMessage()">Enviar</button>
+    </div>
+
+    <div class="graph-section">
+        <h2>Gráfico</h2>
+        <input type="text" id="chartData" placeholder="Dados do gráfico (ex: 10,20,30)" />
+        <select id="chartType">
+            <option value="line">Linha</option>
+            <option value="bar">Barra</option>
+            <option value="radar">Radar</option>
+            <option value="pie">Pizza</option>
+            <option value="doughnut">Donut</option>
+        </select>
+        <button onclick="drawChart()">Criar Gráfico</button>
+        <button onclick="saveChart()">Salvar Gráfico</button>
+        <canvas id="myChart" width="400" height="200"></canvas>
+    </div>
+
+    <div class="drawing-section">
+        <h2>Desenho</h2>
+        <canvas id="drawingCanvas" width="400" height="200" style="border:1px solid #000000;"></canvas>
+        <div class="drawing-tools">
+            <button onclick="clearDrawing()">Limpar Desenho</button>
+            <input type="color" id="colorPicker" value="#000000" onchange="changeColor(this.value)" />
+            <button onclick="saveDrawing()">Salvar Desenho</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
-</html>
+</html>çº
